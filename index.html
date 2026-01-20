@@ -4,22 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hexacode – Agence Web</title>
-  <meta name="description" content="Hexacode – Agence web moderne fondée par Bogdan et Alois">
 
   <link rel="icon" href="logo-exacode.png" type="image/png">
   <link rel="apple-touch-icon" href="logo-exacode.png">
 
-  <!-- Apple‑like font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#f5f5f7;
-      --card:#ffffff;
-      --text:#111111;
-      --muted:#6b7280;
-      --primary:#2563eb;
-      --border:#e5e7eb;
+      --bg:#020617;
+      --glass:rgba(255,255,255,0.08);
+      --border:rgba(255,255,255,0.18);
+      --text:#f8fafc;
+      --muted:#94a3b8;
+      --primary:#6366f1;
+      --secondary:#22d3ee;
     }
 
     *{
@@ -30,29 +29,33 @@
     }
 
     body{
-      background:var(--bg);
+      min-height:100vh;
+      background:
+        radial-gradient(circle at top left,#1e293b,transparent 40%),
+        radial-gradient(circle at bottom right,#020617,transparent 40%),
+        var(--bg);
       color:var(--text);
-      line-height:1.6;
+      overflow-x:hidden;
     }
 
     .container{
       max-width:1100px;
       margin:auto;
-      padding:80px 20px;
+      padding:100px 20px;
     }
 
     /* HEADER */
     header{
+      position:sticky;
+      top:0;
+      z-index:20;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:25px 40px;
-      position:sticky;
-      top:0;
-      background:rgba(245,245,247,.85);
-      backdrop-filter:blur(14px);
+      padding:22px 40px;
+      background:var(--glass);
       border-bottom:1px solid var(--border);
-      z-index:10;
+      backdrop-filter:blur(18px);
     }
 
     .logo{
@@ -64,9 +67,9 @@
     }
 
     .logo img{
-      width:38px;
-      height:38px;
-      border-radius:10px;
+      width:40px;
+      height:40px;
+      border-radius:12px;
     }
 
     nav a{
@@ -77,25 +80,31 @@
       transition:.3s;
     }
 
-    nav a:hover{color:var(--text)}
+    nav a:hover{color:white}
 
     /* HERO */
     .hero{
       text-align:center;
-      padding-top:120px;
-      padding-bottom:120px;
+      padding-top:140px;
+      padding-bottom:140px;
     }
 
     .hero h1{
-      font-size:54px;
+      font-size:56px;
       font-weight:700;
-      max-width:750px;
+      max-width:760px;
       margin:auto;
-      letter-spacing:-1px;
+      line-height:1.1;
+    }
+
+    .hero span{
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
     }
 
     .hero p{
-      margin-top:25px;
+      margin-top:28px;
       font-size:19px;
       color:var(--muted);
       max-width:620px;
@@ -105,144 +114,129 @@
 
     .btn{
       display:inline-block;
-      margin-top:40px;
-      padding:14px 34px;
+      margin-top:45px;
+      padding:15px 38px;
       border-radius:999px;
-      background:var(--primary);
-      color:white;
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      color:#020617;
       font-weight:600;
       text-decoration:none;
-      transition:.3s;
+      transition:.35s;
     }
 
     .btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 30px rgba(0,0,0,.15);
+      transform:translateY(-4px);
+      box-shadow:0 25px 60px rgba(99,102,241,.45);
+    }
+
+    /* GLASS CARD */
+    .glass{
+      background:var(--glass);
+      border:1px solid var(--border);
+      backdrop-filter:blur(20px);
+      border-radius:26px;
+      padding:50px;
+      box-shadow:0 40px 80px rgba(0,0,0,.4);
+      transition:.4s;
+    }
+
+    .glass:hover{
+      transform:translateY(-10px);
     }
 
     /* SECTIONS */
     .section-title{
       text-align:center;
-      font-size:38px;
-      font-weight:600;
-      margin-bottom:60px;
+      font-size:40px;
+      font-weight:700;
+      margin-bottom:70px;
     }
 
     /* SERVICES */
     .services{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:30px;
-    }
-
-    .service{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:24px;
-      padding:40px;
-      transition:.3s;
-    }
-
-    .service:hover{
-      transform:translateY(-6px);
-      box-shadow:0 20px 50px rgba(0,0,0,.06);
+      gap:35px;
     }
 
     /* TEAM */
     .team{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:30px;
-    }
-
-    .member{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:24px;
-      padding:50px;
-      text-align:center;
-      transition:.3s;
-    }
-
-    .member:hover{
-      transform:translateY(-6px);
-      box-shadow:0 20px 50px rgba(0,0,0,.06);
+      gap:35px;
     }
 
     .avatar{
       width:90px;
       height:90px;
       border-radius:50%;
-      background:#e5e7eb;
       margin:auto;
-      margin-bottom:20px;
+      margin-bottom:22px;
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      opacity:.9;
     }
 
     /* CONTACT */
     .contact{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:30px;
-      padding:80px 40px;
+      max-width:700px;
+      margin:auto;
       text-align:center;
     }
 
     .contact h2{
-      font-size:36px;
-      font-weight:600;
+      font-size:38px;
+      font-weight:700;
     }
 
     .contact p{
-      margin-top:12px;
+      margin-top:14px;
       color:var(--muted);
       font-size:17px;
     }
 
     form{
       margin-top:40px;
-      max-width:480px;
-      margin-left:auto;
-      margin-right:auto;
     }
 
     form input, form textarea{
       width:100%;
       padding:14px 16px;
-      margin-bottom:15px;
+      margin-bottom:16px;
       border-radius:12px;
       border:1px solid var(--border);
       outline:none;
       font-size:15px;
-      background:#fafafa;
+      background:rgba(255,255,255,0.05);
+      color:white;
     }
 
     form button{
       width:100%;
-      padding:14px;
+      padding:15px;
       border-radius:999px;
       border:none;
-      background:var(--primary);
-      color:white;
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      color:#020617;
       font-weight:600;
       cursor:pointer;
       transition:.3s;
     }
 
     form button:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 30px rgba(0,0,0,.15);
+      transform:translateY(-3px);
+      box-shadow:0 20px 50px rgba(99,102,241,.4);
     }
 
     footer{
       text-align:center;
-      padding:50px;
+      padding:60px;
       color:var(--muted);
       font-size:14px;
     }
 
     @media(max-width:900px){
-      .hero h1{font-size:40px}
       header{flex-direction:column;gap:20px}
+      .hero h1{font-size:42px}
     }
   </style>
 </head>
@@ -262,9 +256,9 @@
 </header>
 
 <section class="hero">
-  <h1>Nous créons des expériences web simples et élégantes</h1>
+  <h1>Nous codons vos idées<br><span>avec élégance et précision</span></h1>
   <p>
-    Agence web fondée par Bogdan et Alois. Sites modernes, rapides et accessibles.
+    Agence web moderne fondée par Bogdan et Alois. Sites rapides, design premium et solutions sur mesure.
   </p>
   <a href="#contact" class="btn">Nous contacter</a>
 </section>
@@ -272,17 +266,17 @@
 <section id="services" class="container">
   <h2 class="section-title">Nos services</h2>
   <div class="services">
-    <div class="service">
+    <div class="glass">
       <h3>Sites vitrines</h3>
-      <p>Présentez votre activité avec élégance et efficacité.</p>
+      <p>Présentez votre activité avec un design moderne et impactant.</p>
     </div>
-    <div class="service">
+    <div class="glass">
       <h3>Applications web</h3>
-      <p>Fonctionnalités sur mesure et performance optimale.</p>
+      <p>Fonctionnalités avancées, rapides et parfaitement sécurisées.</p>
     </div>
-    <div class="service">
+    <div class="glass">
       <h3>Design UI/UX</h3>
-      <p>Interfaces minimalistes, intuitives et responsives.</p>
+      <p>Interfaces élégantes, fluides et optimisées pour tous les écrans.</p>
     </div>
   </div>
 </section>
@@ -290,12 +284,12 @@
 <section id="team" class="container">
   <h2 class="section-title">L’équipe</h2>
   <div class="team">
-    <div class="member">
+    <div class="glass">
       <div class="avatar"></div>
       <h3>Bogdan</h3>
       <p>Développeur web & entrepreneur</p>
     </div>
-    <div class="member">
+    <div class="glass">
       <div class="avatar"></div>
       <h3>Alois</h3>
       <p>Développeur créatif & solutions digitales</p>
@@ -304,7 +298,7 @@
 </section>
 
 <section id="contact" class="container">
-  <div class="contact">
+  <div class="glass contact">
     <h2>Contact</h2>
     <p>📞 +32 474 22 29 26</p>
     <p>📧 exacodeofficial@gmail.com</p>
